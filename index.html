@@ -84,13 +84,13 @@
       cursor: pointer;
       border: none;
       transition: transform 0.2s ease, box-shadow 0.2s ease;
+      text-align: center; /*  Центрирование текста внутри кнопки */
     }
 
     .btn-primary {
       background-color: var(--cta-color);
       color: #fff;
     }
-    /*  Исправление: повышена специфичность, цвет текста явно зафиксирован */
     a.btn-primary:hover {
       background-color: #d63a14;
       color: #fff;
@@ -125,8 +125,6 @@
       border-radius: var(--radius-md);
       border: 1px solid rgba(0,0,0,0.05);
       box-shadow: 0 4px 20px rgba(34, 42, 42, 0.05);
-      
-      /*  Flexbox для выравнивания цен и кнопок */
       display: flex;
       flex-direction: column;
       height: 100%;
@@ -162,6 +160,7 @@
       align-items: center;
       justify-content: space-between;
       padding: 1rem 0;
+      position: relative;
     }
 
     .logo {
@@ -171,8 +170,20 @@
     }
     .logo span { color: var(--cta-color); }
 
+    /* Мобильное меню */
+    .menu-btn {
+      display: none; /* Скрыто на десктопе */
+      background: none;
+      border: none;
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--c-charleston);
+      cursor: pointer;
+      padding: 0.5rem;
+    }
+    
     .nav-links {
-      display: none;
+      display: flex;
       gap: 2rem;
     }
 
@@ -182,8 +193,33 @@
     }
     .nav-links a:hover { color: var(--cta-color); }
 
-    @media (min-width: 768px) {
-      .nav-links { display: flex; }
+    /* Адаптив навигации */
+    @media (max-width: 768px) {
+      .logo { display: none; } /* Скрываем лого на мобильном */
+      .menu-btn { display: block; } /* Показываем кнопку "Меню" */
+      
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: var(--c-bone);
+        flex-direction: column;
+        padding: 2rem;
+        gap: 1.5rem;
+        border-bottom: 1px solid rgba(34, 42, 42, 0.1);
+        box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+      }
+      
+      .nav-links.active {
+        display: flex;
+      }
+      
+      .nav-links a {
+        font-size: 1.2rem;
+        text-align: center;
+      }
     }
 
     /* Hero */
@@ -216,6 +252,19 @@
       flex-wrap: wrap;
     }
 
+    /*  Центрирование кнопок Hero на мобильном */
+    @media (max-width: 768px) {
+      .hero__actions {
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+      }
+      .hero__actions .btn {
+        width: 100%;
+        max-width: 320px;
+      }
+    }
+
     .hero__image {
       position: relative;
       border-radius: var(--radius-md);
@@ -237,6 +286,7 @@
       background: var(--bg-surface);
     }
 
+    /*  Сетка Обо мне */
     .about__grid {
       display: grid;
       gap: 3rem;
@@ -245,6 +295,14 @@
 
     @media (min-width: 768px) {
       .about__grid { grid-template-columns: 1fr 1.2fr; }
+    }
+    
+    /*  На мобильном фото идет перед текстом (но после заголовка, который выше) */
+    @media (max-width: 768px) {
+      .about__grid {
+        display: flex;
+        flex-direction: column;
+      }
     }
 
     .about__photo {
@@ -296,9 +354,7 @@
       font-size: 1.8rem;
       font-weight: 700;
       color: var(--text-main);
-      
-      /* 👇 Отталкивает цену и кнопку к низу карточки */
-      margin-top: auto;
+      margin-top: auto; 
       margin-bottom: 1rem;
     }
 
@@ -495,7 +551,7 @@
       margin-top: 1rem;
     }
 
-    /* Статус формы (для AJAX) */
+    /* Статус формы */
     #form-status {
       display: none;
       padding: 1rem;
@@ -587,14 +643,21 @@
   <header>
     <div class="container">
       <nav>
+        <!-- Кнопка Меню (видна только на мобильном) -->
+        <button id="menu-toggle" class="menu-btn">Меню</button>
+        
+        <!-- Логотип (виден только на десктопе) -->
         <div class="logo">English with <span>Lexi</span></div>
-        <div class="nav-links">
+        
+        <!-- Ссылки -->
+        <div class="nav-links" id="nav-links">
           <a href="#about">Обо мне</a>
           <a href="#services">Форматы</a>
           <a href="#reviews">Отзывы</a>
           <a href="#blog">Блог</a>
           <a href="#contact">Контакты</a>
         </div>
+        
         <a href="#contact" class="btn btn-primary" style="padding: 0.6rem 1.2rem; font-size: 1rem;">Записаться</a>
       </nav>
     </div>
@@ -607,7 +670,7 @@
         <h1>Английский для подростков: <br><span>с результатом, <br>без стресса</span></h1>
         <p>Помогаю школьникам 12-17 лет говорить уверенно, готовиться к ОГЭ/ЕГЭ без зубрёжки и полюбить язык через живое общение. Первый пробный урок - бесплатно.</p>
         <div class="hero__actions">
-          <a href="#contact" class="btn btn-primary">Записаться на бесплатный урок</a>
+          <a href="#contact" class="btn btn-primary">Записаться <br>на бесплатный урок</a>
           <a href="#services" class="btn btn-outline">Посмотреть форматы</a>
         </div>
       </div>
@@ -624,6 +687,9 @@
     <!-- Обо мне -->
     <section id="about" class="about section">
       <div class="container">
+        <!--  Заголовок вынесен перед сеткой -->
+        <h2 style="text-align: center; margin-bottom: 2rem;">Не просто учитель, а наставник, который <span style="color: var(--cta-color);">понимает подростков</span></h2>
+        
         <div class="about__grid">
           <div class="about__photo">
             <img src="images/tutor-portrait.webp" 
@@ -633,7 +699,7 @@
                  loading="lazy">
           </div>
           <div class="about__content">
-            <h2>Не просто учитель, а наставник, который <span style="color: var(--cta-color);">понимает подростков</span></h2>
+            <!-- Заголовок удален отсюда, так как он выше -->
             
             <p>
               <strong style="color: var(--text-main);">23 года</strong> я работаю в школе и знаю, как устроена система изнутри: 
@@ -950,6 +1016,25 @@
       });
     });
 
+    // Мобильное меню (Меню <-> Закрыть)
+    const menuToggle = document.getElementById('menu-toggle');
+    const navLinks = document.getElementById('nav-links');
+
+    if (menuToggle && navLinks) {
+      menuToggle.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+        menuToggle.textContent = navLinks.classList.contains('active') ? 'Закрыть' : 'Меню';
+      });
+
+      // Закрываем меню при клике на ссылку
+      navLinks.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          navLinks.classList.remove('active');
+          menuToggle.textContent = 'Меню';
+        });
+      });
+    }
+
     // AJAX-обработка формы Formspree
     const form = document.getElementById('contact-form');
     const status = document.getElementById('form-status');
@@ -976,18 +1061,26 @@
           });
 
           if (response.ok) {
+            // Успех
             status.className = 'success';
             status.innerText = 'Спасибо! Заявка отправлена. Я свяжусь с вами в ближайшее время.';
+            // Принудительно показываем блок (на случай проблем с CSS)
+            status.style.display = 'block';
             form.reset();
           } else {
+            // Ошибка сервера
             const data = await response.json();
             status.className = 'error';
             status.innerText = data.errors ? data.errors.map(err => err.message).join(', ') : 'Ошибка отправки. Попробуйте ещё раз.';
+            status.style.display = 'block';
           }
         } catch (error) {
+          // Сетевая ошибка
           status.className = 'error';
           status.innerText = 'Проверьте соединение с интернетом и попробуйте снова.';
+          status.style.display = 'block';
         } finally {
+          // Возвращаем кнопку в исходное состояние
           if (submitBtn) {
             submitBtn.disabled = false;
             submitBtn.innerText = originalBtnText;
