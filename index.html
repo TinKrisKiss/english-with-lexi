@@ -37,7 +37,10 @@
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
     
-    html { scroll-behavior: smooth; }
+    html { 
+      scroll-behavior: smooth; 
+      scroll-padding-top: 90px; /* Отступ под липкий хэдер + буфер */
+    }
     
     body {
       font-family: var(--font-main);
@@ -884,7 +887,38 @@
       <div class="container">
         <h2 class="text-center" style="margin-bottom: 3rem;">Запишитесь на первый урок</h2>
         
-        <div class="contact__grid">
+                <div class="contact__grid">
+          <!-- 1. Форма (теперь первая) -->
+          <div class="contact-form">
+            <form id="contact-form" action="https://formspree.io/f/mjgzqojo" method="POST">
+              <div id="form-status"></div>
+
+              <div class="form-group">
+                <label for="name">Ваше имя *</label>
+                <input type="text" id="name" name="name" class="form-input" placeholder="Как к вам обращаться?" required>
+              </div>
+
+              <div class="form-group">
+                <label for="contact-info">Телефон или Telegram *</label>
+                <input type="text" id="contact-info" name="contact" class="form-input" placeholder="+7 (___) ___-__-__" required>
+              </div>
+
+              <div class="form-group">
+                <label for="child-info">Класс ребёнка и цель занятий</label>
+                <input type="text" id="child-info" name="child_info" class="form-input" placeholder="Например: 8 класс, подготовка к ОГЭ">
+              </div>
+
+              <div class="form-group">
+                <label for="message">Комментарий (необязательно)</label>
+                <textarea id="message" name="message" class="form-input" placeholder="Удобное время для занятий, вопросы и т.д."></textarea>
+              </div>
+
+              <button type="submit" id="submit-btn" class="btn btn-primary" style="width: 100%;">Отправить заявку</button>
+              <p class="form-note">Я отвечу в течение 2 часов. Никакого спама, только детали урока.</p>
+            </form>
+          </div>
+
+          <!-- 2. Контактная информация (теперь вторая) -->
           <div class="contact-info">
             <h3>Контактная информация</h3>
             
@@ -932,36 +966,6 @@
                 <span>Пн-Пт: 10:00 - 20:00</span>
               </div>
             </div>
-          </div>
-
-          <!-- Форма с AJAX-обработкой -->
-          <div class="contact-form">
-            <form id="contact-form" action="https://formspree.io/f/mjgzqojo" method="POST">
-              <div id="form-status"></div>
-
-              <div class="form-group">
-                <label for="name">Ваше имя *</label>
-                <input type="text" id="name" name="name" class="form-input" placeholder="Как к вам обращаться?" required>
-              </div>
-
-              <div class="form-group">
-                <label for="contact-info">Телефон или Telegram *</label>
-                <input type="text" id="contact-info" name="contact" class="form-input" placeholder="+7 (___) ___-__-__" required>
-              </div>
-
-              <div class="form-group">
-                <label for="child-info">Класс ребёнка и цель занятий</label>
-                <input type="text" id="child-info" name="child_info" class="form-input" placeholder="Например: 8 класс, подготовка к ОГЭ">
-              </div>
-
-              <div class="form-group">
-                <label for="message">Комментарий (необязательно)</label>
-                <textarea id="message" name="message" class="form-input" placeholder="Удобное время для занятий, вопросы и т.д."></textarea>
-              </div>
-
-              <button type="submit" id="submit-btn" class="btn btn-primary" style="width: 100%;">Отправить заявку</button>
-              <p class="form-note">Я отвечу в течение 2 часов. Никакого спама, только детали урока.</p>
-            </form>
           </div>
         </div>
       </div>
