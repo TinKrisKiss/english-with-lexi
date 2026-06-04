@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Пошаговый план подготовки к ОГЭ по английскому для подростков. Структура, сроки, типичные ошибки.">
+  <title>Подготовка к ОГЭ по английскому - English with Lexi</title>
+  <style>
+    :root {
+      --c-tangerine: #F39005; --c-charleston: #222A2A; --c-bone: #E1D9C1;
+      --c-orioles: #ED4319; --c-auro-metal: #6D7A79;
+      --bg-body: var(--c-bone); --bg-surface: #F5F1E8;
+      --text-main: var(--c-charleston); --text-muted: var(--c-auro-metal);
+      --primary-accent: var(--c-tangerine); --cta-color: var(--c-orioles);
+      --radius-sm: 6px; --radius-md: 12px; --container-width: min(92%, 800px);
+      --font-main: 'Inter', system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      --body-size: 1.125rem;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font-main); background: var(--bg-body);
+      color: var(--text-main); line-height: 1.6; font-size: var(--body-size);
+      -webkit-font-smoothing: antialiased; padding-bottom: 4rem;
+    }
+    .container { width: var(--container-width); margin-inline: auto; padding-inline: 1rem; }
+    
+    header { background: rgba(225, 217, 193, 0.95); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(34, 42, 42, 0.1); padding: 1rem 0; position: sticky; top: 0; z-index: 100; }
+    nav { display: flex; justify-content: space-between; align-items: center; }
+    .logo { font-weight: 700; font-size: 1.5rem; color: var(--c-charleston); text-decoration: none; }
+    .logo span { color: var(--cta-color); }
+    .btn { display: inline-block; padding: 0.8rem 1.5rem; border-radius: var(--radius-md); font-weight: 600; text-decoration: none; cursor: pointer; border: none; transition: 0.2s; }
+    .btn-primary { background: var(--cta-color); color: #fff; }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(237,67,25,0.3); }
+    .btn-outline { border: 2px solid var(--c-charleston); color: var(--c-charleston); background: transparent; }
+    .btn-outline:hover { background: var(--c-charleston); color: var(--c-bone); }
+
+    .article-header { margin-top: 3rem; margin-bottom: 2rem; }
+    .breadcrumbs { font-size: 0.9rem; color: var(--text-muted); margin-bottom: 1rem; }
+    .breadcrumbs a { color: var(--text-muted); text-decoration: underline; }
+    h1 { font-size: clamp(2rem, 5vw, 2.8rem); line-height: 1.2; margin-bottom: 1rem; color: var(--text-main); }
+    .meta { color: var(--text-muted); font-size: 0.95rem; margin-bottom: 2rem; display: block; }
+    
+    .content p { margin-bottom: 1.5rem; color: var(--text-main); }
+    .content h2 { margin: 2.5rem 0 1rem; font-size: 1.6rem; }
+    .content ul { margin-bottom: 1.5rem; padding-left: 1.5rem; }
+    .content li { margin-bottom: 0.5rem; }
+    .content strong { color: var(--text-main); }
+    
+    .cta-box {
+      background: var(--bg-surface);
+      padding: 2rem;
+      border-radius: var(--radius-md);
+      margin-top: 3rem;
+      text-align: center;
+      border-left: 5px solid var(--cta-color);
+    }
+    .cta-box h3 { margin-bottom: 1rem; }
+    .cta-box p { color: var(--text-muted); margin-bottom: 1.5rem; }
+
+    /* Пагинация статей */
+    .article-pagination {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 4rem;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(34, 42, 42, 0.1);
+      gap: 1rem;
+    }
+    .pagination-link {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      color: var(--text-main);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.2s;
+      flex: 1;
+    }
+    .pagination-link:hover { color: var(--cta-color); }
+    .pagination-link svg { width: 24px; height: 24px; flex-shrink: 0; }
+    .pagination-label { font-size: 0.85rem; color: var(--text-muted); display: block; margin-bottom: 0.2rem; }
+    .pagination-title { font-size: 1rem; line-height: 1.3; }
+    .pagination-link:last-child { text-align: right; flex-direction: row-reverse; }
+    
+    @media (max-width: 600px) {
+      .article-pagination { flex-direction: column; align-items: stretch; }
+      .pagination-link:last-child { text-align: left; flex-direction: row; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="container">
+      <nav>
+        <a href="index.html" class="logo">English with <span>Lexi</span></a>
+        <a href="index.html#contact" class="btn btn-primary" style="padding: 0.6rem 1.2rem; font-size: 0.9rem;">Записаться</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <article>
+      <header class="article-header">
+        <div class="breadcrumbs">
+          <a href="index.html">Главная</a> / <a href="index.html#blog">Блог</a> / Подготовка к экзаменам
+        </div>
+        <h1>Как подготовиться к ОГЭ по английскому: пошаговый план</h1>
+        <span class="meta">15 мая 2026 · Время чтения: 5 мин</span>
+      </header>
+
+      <div class="content">
+        <p>Подготовка к ОГЭ может казаться огромной горой, но если разбить её на шаги, всё становится понятным. Главное - начать заранее и не паниковать. Ниже - проверенная стратегия, которая работает без выгорания.</p>
+        
+        <img src="images/blog-oge.webp" alt="Подготовка к ОГЭ по английскому" style="width: 100%; height: auto; border-radius: var(--radius-md); margin: 2rem 0; display: block;">
+
+        <h2>Шаг 1. Аудит знаний (6 месяцев до экзамена)</h2>
+        <p>Прежде чем открывать сборники тестов, нужно честно оценить, где мы сейчас. Решите один пробный вариант целиком, засеките время. Не страшно, если результат будет низким - это наша точка старта, а не приговор.</p>
+
+        <h2>Шаг 2. Грамматика и лексика (4-5 месяцев до экзамена)</h2>
+        <p>Не зубрите правила списками. Учите их в контексте.
+        <ul>
+          <li>Выучите слова по темам: «Семья», «Школа», «Путешествия», «Экология».</li>
+          <li>Разберитесь с базовыми временами: Present/Past/Future Simple, Present Perfect.</li>
+          <li>Составляйте собственные предложения с новыми словами.</li>
+        </ul>
+        </p>
+
+        <h2>Шаг 3. Аудирование и Чтение (2-3 месяца до экзамена)</h2>
+        <p>Включайте подкасты для подростков, смотрите короткие видео на YouTube. Задача - привыкнуть к скорости речи и разным акцентам. В чтении тренируйтесь вычленять главную мысль, не переводя каждое слово мысленно.</p>
+
+        <h2>Шаг 4. Пробные тесты и тайминг (1 месяц до экзамена)</h2>
+        <p>Решайте варианты в условиях, близких к экзамену: без подсказок, с таймером. Ошибки - это хорошо, они показывают, что еще нужно подтянуть. Разбирайте каждую ошибку с преподавателем.</p>
+        
+        <div class="cta-box">
+          <h3>Нужна помощь с планом подготовки?</h3>
+          <p>Я помогу составить индивидуальный график занятий, закрою пробелы в знаниях и проведу пробные экзамены с разбором ошибок.</p>
+          <a href="index.html#contact" class="btn btn-primary">Записаться на консультацию</a>
+        </div>
+      </div>
+
+      <!-- Навигация между статьями -->
+      <div class="article-pagination">
+        <a href="index.html#blog" class="pagination-link">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+          <div>
+            <span class="pagination-label">Все статьи</span>
+            <span class="pagination-title">Вернуться к блогу</span>
+          </div>
+        </a>
+        <a href="blog-barrier.html" class="pagination-link">
+          <div>
+            <span class="pagination-label">Следующая статья</span>
+            <span class="pagination-title">Языковой барьер</span>
+          </div>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+        </a>
+      </div>
+    </article>
+  </main>
+
+  <footer style="background: var(--c-charleston); color: var(--c-bone); padding: 2rem 0; margin-top: 4rem; text-align: center;">
+    <div class="container">
+      <p>© 2026 English with Lexi. Демо-сайт.</p>
+      <p style="font-size: 0.9rem; color: var(--c-auro-metal); margin-top: 0.5rem;">
+        <a href="privacy.html" style="color: var(--c-tangerine);">Политика</a> · 
+        <a href="terms.html" style="color: var(--c-tangerine);">Оферта</a>
+      </p>
+    </div>
+  </footer>
+
+</body>
+</html>

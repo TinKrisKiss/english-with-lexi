@@ -1,0 +1,11 @@
+# robots.txt for English with Lexi
+
+User-agent: *
+Allow: /
+
+# Запрет на индексацию системных файлов GitHub Pages (опционально, но полезно для чистоты)
+Disallow: /.git/
+Disallow: /_config.yml
+
+# Путь к карте сайта (замените URL на свой реальный домен после деплоя)
+Sitemap: https://username.github.io/english-with-lexi/sitemap.xml

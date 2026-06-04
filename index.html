@@ -1,0 +1,1000 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Репетитор английского для подростков в Екатеринбурге. Александра Васильевна: 23 года опыта. Подготовка к ОГЭ/ЕГЭ, разговорный клуб. Первый урок бесплатно.">
+  <meta name="theme-color" content="#222A2A">
+  <title>English with Lexi - Репетитор английского для подростков | Екатеринбург</title>
+  
+  <style>
+    /* =========================================
+        BRAND SYSTEM & VARIABLES
+       ========================================= */
+    :root {
+      --c-tangerine: #F39005;
+      --c-charleston: #222A2A;
+      --c-bone: #E1D9C1;
+      --c-orioles: #ED4319;
+      --c-auro-metal: #6D7A79;
+      --bg-body: var(--c-bone);
+      --bg-surface: #F5F1E8;
+      --text-main: var(--c-charleston);
+      --text-muted: var(--c-auro-metal);
+      --primary-accent: var(--c-tangerine);
+      --cta-color: var(--c-orioles);
+      --radius-sm: 6px;
+      --radius-md: 12px;
+      --container-width: min(92%, 1140px);
+      --spacing-section: clamp(4rem, 8vw, 6rem);
+      --spacing-card: 2rem;
+      --font-main: 'Inter', system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      --h1-size: clamp(2.2rem, 5vw, 3.5rem);
+      --h2-size: clamp(1.8rem, 4vw, 2.5rem);
+      --h3-size: clamp(1.25rem, 2.5vw, 1.5rem);
+      --body-size: 1.125rem;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    
+    html { scroll-behavior: smooth; }
+    
+    body {
+      font-family: var(--font-main);
+      background-color: var(--bg-body);
+      color: var(--text-main);
+      line-height: 1.6;
+      font-size: var(--body-size);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .container {
+      width: var(--container-width);
+      margin-inline: auto;
+      padding-inline: 1rem;
+    }
+
+    h1, h2, h3 {
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 1rem;
+      color: var(--text-main);
+    }
+
+    h1 { font-size: var(--h1-size); }
+    h2 { font-size: var(--h2-size); }
+    h3 { font-size: var(--h3-size); }
+    
+    p { margin-bottom: 1.5rem; }
+    .text-muted { color: var(--text-muted); }
+    .text-center { text-align: center; }
+    
+    a { text-decoration: none; color: inherit; transition: 0.3s; }
+    a:hover { color: var(--cta-color); }
+
+    /* Кнопки */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem 2rem;
+      border-radius: var(--radius-md);
+      font-weight: 600;
+      font-size: 1.1rem;
+      cursor: pointer;
+      border: none;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .btn-primary {
+      background-color: var(--cta-color);
+      color: #fff;
+    }
+    /*  Исправление: повышена специфичность, цвет текста явно зафиксирован */
+    a.btn-primary:hover {
+      background-color: #d63a14;
+      color: #fff;
+      transform: translateY(-2px);
+      box-shadow: 0 10px 20px rgba(237, 67, 25, 0.25);
+    }
+
+    .btn-secondary {
+      background-color: var(--primary-accent);
+      color: #fff;
+    }
+    a.btn-secondary:hover {
+      background-color: #d98004;
+      color: #fff;
+      transform: translateY(-2px);
+    }
+
+    .btn-outline {
+      background: transparent;
+      border: 2px solid var(--c-charleston);
+      color: var(--c-charleston);
+    }
+    a.btn-outline:hover {
+      background: var(--c-charleston);
+      color: var(--c-bone);
+    }
+
+    /* Карточки */
+    .card {
+      background-color: var(--bg-surface);
+      padding: var(--spacing-card);
+      border-radius: var(--radius-md);
+      border: 1px solid rgba(0,0,0,0.05);
+      box-shadow: 0 4px 20px rgba(34, 42, 42, 0.05);
+      
+      /*  Flexbox для выравнивания цен и кнопок */
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+
+    .card-accent {
+      border-left: 4px solid var(--primary-accent);
+    }
+
+    /* Сетка */
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+
+    .section {
+      padding-block: var(--spacing-section);
+    }
+
+    /* Навигация */
+    header {
+      position: sticky;
+      top: 0;
+      background: rgba(225, 217, 193, 0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(34, 42, 42, 0.1);
+      z-index: 1000;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 0;
+    }
+
+    .logo {
+      font-weight: 700;
+      font-size: 1.5rem;
+      color: var(--c-charleston);
+    }
+    .logo span { color: var(--cta-color); }
+
+    .nav-links {
+      display: none;
+      gap: 2rem;
+    }
+
+    .nav-links a {
+      font-weight: 500;
+      color: var(--text-muted);
+    }
+    .nav-links a:hover { color: var(--cta-color); }
+
+    @media (min-width: 768px) {
+      .nav-links { display: flex; }
+    }
+
+    /* Hero */
+    .hero {
+      display: grid;
+      gap: 3rem;
+      align-items: center;
+      padding-block: clamp(3rem, 8vw, 5rem);
+    }
+
+    @media (min-width: 768px) {
+      .hero { grid-template-columns: 1fr 1fr; }
+    }
+
+    .hero__content h1 {
+      line-height: 1.15;
+      margin-bottom: 1.5rem;
+    }
+    .hero__content h1 span { color: var(--cta-color); }
+    .hero__content p {
+      color: var(--text-muted);
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+      max-width: 52ch;
+    }
+
+    .hero__actions {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .hero__image {
+      position: relative;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      background: var(--bg-surface);
+      aspect-ratio: 4/5;
+      box-shadow: 0 20px 40px rgba(34, 42, 42, 0.15);
+    }
+
+    .hero__image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* Обо мне */
+    .about {
+      background: var(--bg-surface);
+    }
+
+    .about__grid {
+      display: grid;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    @media (min-width: 768px) {
+      .about__grid { grid-template-columns: 1fr 1.2fr; }
+    }
+
+    .about__photo {
+      position: relative;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      aspect-ratio: 4/5;
+      background: #ddd;
+    }
+
+    .about__photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .about__content h2 { margin-bottom: 1.5rem; }
+    .about__content p {
+      color: var(--text-muted);
+      margin-bottom: 1.2rem;
+    }
+
+    .location-badge {
+      margin-top: 2rem;
+      padding: 1.5rem;
+      background: var(--c-charleston);
+      color: var(--c-bone);
+      border-radius: var(--radius-md);
+      display: inline-flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .location-badge svg {
+      flex-shrink: 0;
+      color: var(--primary-accent);
+    }
+
+    /* Услуги */
+    .services__header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .services__header h2 { margin-bottom: 0.5rem; }
+    .services__header p { max-width: 600px; margin: 0 auto; }
+
+    .price-tag {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--text-main);
+      
+      /* 👇 Отталкивает цену и кнопку к низу карточки */
+      margin-top: auto;
+      margin-bottom: 1rem;
+    }
+
+    .price-tag span {
+      font-size: 1rem;
+      font-weight: 400;
+      color: var(--text-muted);
+    }
+
+    .service-list {
+      list-style: none;
+      margin: 1.5rem 0;
+    }
+
+    .service-list li {
+      padding: 0.5rem 0;
+      padding-left: 1.5rem;
+      position: relative;
+    }
+
+    .service-list li::before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      color: var(--cta-color);
+      font-weight: 700;
+    }
+
+    /* Отзывы */
+    .reviews {
+      background: var(--bg-surface);
+    }
+
+    .review-card {
+      background: var(--bg-body);
+      padding: 2rem;
+      border-radius: var(--radius-md);
+    }
+
+    .review-header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .review-avatar {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background: var(--c-tangerine);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      color: #fff;
+      font-size: 1.5rem;
+    }
+
+    .review-meta h4 {
+      margin-bottom: 0.2rem;
+      font-size: 1.1rem;
+    }
+
+    .review-meta span {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    .review-text {
+      color: var(--text-muted);
+      font-style: italic;
+    }
+
+    /* Блог */
+    .blog-card {
+      transition: transform 0.3s ease;
+    }
+    .blog-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .blog-card__image {
+      aspect-ratio: 16/9;
+      background: var(--c-charleston);
+      border-radius: var(--radius-md) var(--radius-md) 0 0;
+      overflow: hidden;
+    }
+
+    .blog-card__image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .blog-card__content {
+      padding: 1.5rem;
+    }
+
+    .blog-card__meta {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin-bottom: 0.5rem;
+    }
+
+    .blog-card__title {
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .blog-card__excerpt {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+
+    /* Контакты */
+    .contact {
+      background: var(--bg-surface);
+    }
+
+    .contact__grid {
+      display: grid;
+      gap: 3rem;
+    }
+
+    @media (min-width: 768px) {
+      .contact__grid { grid-template-columns: 1fr 1fr; }
+    }
+
+    .contact-info h3 { margin-bottom: 1.5rem; }
+    .contact-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .contact-item svg {
+      color: var(--cta-color);
+      flex-shrink: 0;
+    }
+
+    .contact-item strong {
+      display: block;
+      margin-bottom: 0.2rem;
+      color: var(--text-main);
+    }
+
+    .contact-item span {
+      color: var(--text-muted);
+    }
+
+    .contact-form {
+      background: var(--bg-body);
+      padding: 2rem;
+      border-radius: var(--radius-md);
+    }
+
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 500;
+      color: var(--text-main);
+    }
+
+    .form-input {
+      width: 100%;
+      padding: 0.9rem 1rem;
+      border: 2px solid rgba(34, 42, 42, 0.1);
+      border-radius: var(--radius-sm);
+      font-size: 1rem;
+      font-family: inherit;
+      transition: border-color 0.3s;
+    }
+
+    .form-input:focus {
+      outline: none;
+      border-color: var(--primary-accent);
+    }
+
+    textarea.form-input {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    .form-note {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      text-align: center;
+      margin-top: 1rem;
+    }
+
+    /* Статус формы (для AJAX) */
+    #form-status {
+      display: none;
+      padding: 1rem;
+      margin-bottom: 1rem;
+      border-radius: var(--radius-sm);
+      text-align: center;
+      font-weight: 500;
+    }
+    #form-status.success {
+      background: var(--c-charleston);
+      color: var(--c-bone);
+      display: block;
+    }
+    #form-status.error {
+      background: var(--c-orioles);
+      color: #fff;
+      display: block;
+    }
+
+    /* Футер */
+    footer {
+      background: var(--c-charleston);
+      color: var(--c-bone);
+      padding-block: 3rem;
+    }
+
+    .footer-grid {
+      display: grid;
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    @media (min-width: 768px) {
+      .footer-grid { grid-template-columns: 2fr 1fr 1fr; }
+    }
+
+    .footer-brand .logo {
+      color: var(--c-bone);
+      margin-bottom: 1rem;
+    }
+
+    .footer-brand p {
+      color: var(--c-auro-metal);
+      font-size: 0.95rem;
+    }
+
+    .footer-links h4 {
+      color: var(--c-bone);
+      margin-bottom: 1rem;
+      font-size: 1.1rem;
+    }
+
+    .footer-links ul {
+      list-style: none;
+    }
+
+    .footer-links li {
+      margin-bottom: 0.5rem;
+    }
+
+    .footer-links a {
+      color: var(--c-auro-metal);
+    }
+    .footer-links a:hover { color: var(--primary-accent); }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(225, 217, 193, 0.1);
+      padding-top: 2rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 1rem;
+      font-size: 0.9rem;
+      color: var(--c-auro-metal);
+    }
+
+    .footer-bottom a {
+      color: var(--primary-accent);
+    }
+
+    /* Утилиты */
+    .mb-0 { margin-bottom: 0; }
+    .mt-2 { margin-top: 2rem; }
+  </style>
+</head>
+<body>
+
+  <!-- Навигация -->
+  <header>
+    <div class="container">
+      <nav>
+        <div class="logo">English with <span>Lexi</span></div>
+        <div class="nav-links">
+          <a href="#about">Обо мне</a>
+          <a href="#services">Форматы</a>
+          <a href="#reviews">Отзывы</a>
+          <a href="#blog">Блог</a>
+          <a href="#contact">Контакты</a>
+        </div>
+        <a href="#contact" class="btn btn-primary" style="padding: 0.6rem 1.2rem; font-size: 1rem;">Записаться</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="hero container">
+      <div class="hero__content">
+        <h1>Английский для подростков: <br><span>с результатом, <br>без стресса</span></h1>
+        <p>Помогаю школьникам 12-17 лет говорить уверенно, готовиться к ОГЭ/ЕГЭ без зубрёжки и полюбить язык через живое общение. Первый пробный урок - бесплатно.</p>
+        <div class="hero__actions">
+          <a href="#contact" class="btn btn-primary">Записаться на бесплатный урок</a>
+          <a href="#services" class="btn btn-outline">Посмотреть форматы</a>
+        </div>
+      </div>
+      <div class="hero__image">
+        <img src="images/hero-tutor.webp" 
+             alt="Александра Васильевна - репетитор английского" 
+             width="600" 
+             height="750" 
+             loading="eager"
+             fetchpriority="high">
+      </div>
+    </section>
+
+    <!-- Обо мне -->
+    <section id="about" class="about section">
+      <div class="container">
+        <div class="about__grid">
+          <div class="about__photo">
+            <img src="images/tutor-portrait.webp" 
+                 alt="Александра Васильевна" 
+                 width="500" 
+                 height="625" 
+                 loading="lazy">
+          </div>
+          <div class="about__content">
+            <h2>Не просто учитель, а наставник, который <span style="color: var(--cta-color);">понимает подростков</span></h2>
+            
+            <p>
+              <strong style="color: var(--text-main);">23 года</strong> я работаю в школе и знаю, как устроена система изнутри: 
+              какие темы вызывают панику, почему ребёнок «не успевает» и как превратить страх перед английским в интерес.
+            </p>
+            
+            <p>
+              <strong style="color: var(--text-main);">12 лет</strong> помогаю школьникам Екатеринбурга готовиться к ОГЭ/ЕГЭ, 
+              преодолевать языковой барьер и находить свой темп. Без давления и чувства вины.
+            </p>
+            
+            <p>
+              Мой подход: <strong style="color: var(--text-main);">структура + поддержка</strong>. 
+              Мы не зубрим правила, а учимся думать на английском. Каждый урок - это диалог, 
+              а не допрос. Результат виден уже через 2-3 месяца.
+            </p>
+            
+            <div class="location-badge">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                <circle cx="12" cy="10" r="3"></circle>
+              </svg>
+              <div>
+                <div style="font-weight: 600; color: var(--primary-accent); margin-bottom: 0.2rem;">Только очные занятия</div>
+                <div style="font-size: 0.95rem;">Екатеринбург, ул. Мамина-Сибиряка, 101<br>6 этаж, офис 615</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Услуги -->
+    <section id="services" class="section">
+      <div class="container">
+        <div class="services__header">
+          <h2>Форматы занятий</h2>
+          <p class="text-muted">Выберите подходящий формат или запишитесь на бесплатный урок, и мы вместе определим, что лучше подходит для вашего ребёнка</p>
+        </div>
+        
+        <div class="grid-3">
+          <!-- Формат A -->
+          <div class="card card-accent">
+            <h3>Индивидуальные занятия</h3>
+            <p class="text-muted">Персональная программа под цели ребёнка: подтянуть текущие оценки, подготовка к контрольным, разговорная практика.</p>
+            <ul class="service-list">
+              <li>60 минут</li>
+              <li>Гибкий график</li>
+              <li>Домашние задания с проверкой</li>
+              <li>Отчёт родителям после каждого занятия</li>
+            </ul>
+            <div class="price-tag">1 500 ₽</div>
+            <a href="#contact" class="btn btn-secondary" style="width: 100%;">Записаться</a>
+          </div>
+
+          <!-- Формат B -->
+          <div class="card card-accent" style="border-left-color: var(--cta-color);">
+            <h3>Подготовка к ОГЭ/ЕГЭ</h3>
+            <p class="text-muted">Интенсивная программа: разбор всех типов заданий, стратегия экзамена, пробные тесты, работа с «ловушками».</p>
+            <ul class="service-list">
+              <li>90 минут</li>
+              <li>2 раза в неделю</li>
+              <li>Все материалы включены</li>
+              <li>Пробные экзамены каждый месяц</li>
+            </ul>
+            <div class="price-tag">2 000 ₽</div>
+            <a href="#contact" class="btn btn-primary" style="width: 100%;">Записаться</a>
+          </div>
+
+          <!-- Формат C -->
+          <div class="card card-accent">
+            <h3>Разговорный клуб</h3>
+            <p class="text-muted">Мини-группы 3-4 человека. Живое общение на английском: дебаты, игры, обсуждение фильмов и книг.</p>
+            <ul class="service-list">
+              <li>60 минут</li>
+              <li>Группа по уровню</li>
+              <li>Дружеская атмосфера</li>
+              <li>Снятие языкового барьера</li>
+            </ul>
+            <div class="price-tag">900 ₽ <span>/ чел.</span></div>
+            <a href="#contact" class="btn btn-secondary" style="width: 100%;">Записаться</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Отзывы -->
+    <section id="reviews" class="reviews section">
+      <div class="container">
+        <h2 class="text-center" style="margin-bottom: 3rem;">Что говорят родители</h2>
+        
+        <div class="grid-3">
+          <!-- Отзыв 1 -->
+          <div class="review-card">
+            <div class="review-header">
+              <div class="review-avatar">МК</div>
+              <div class="review-meta">
+                <h4>Мария К.</h4>
+                <span>мама Артёма, 15 лет</span>
+              </div>
+            </div>
+            <p class="review-text">«За полгода сын подтянул английский с тройки на твёрдую четвёрку. Александра Васильевна нашла к нему подход, стал заниматься сам! ОГЭ сдали на 85 баллов. Сын довольный, смотрит любимые фильмы и сериалы в оригинале с субтитрами.»</p>
+          </div>
+
+          <!-- Отзыв 2 -->
+          <div class="review-card">
+            <div class="review-header">
+              <div class="review-avatar" style="background: var(--c-orioles);">СП</div>
+              <div class="review-meta">
+                <h4>Светлана П.</h4>
+                <span>мама Даши, 16 лет</span>
+              </div>
+            </div>
+            <p class="review-text">«Дочь ходит в разговорный клуб уже 3 месяца. Наконец-то перестала бояться говорить! Александра Васильевна создаёт такую атмосферу, что дети сами хотят участвовать.»</p>
+          </div>
+
+          <!-- Отзыв 3 -->
+          <div class="review-card">
+            <div class="review-header">
+              <div class="review-avatar" style="background: var(--c-tangerine);">ОВ</div>
+              <div class="review-meta">
+                <h4>Ольга В.</h4>
+                <span>мама Максима, 14 лет</span>
+              </div>
+            </div>
+            <p class="review-text">«Очень довольны! Индивидуальные занятия помогли за 2 месяца закрыть пробелы в грамматике. Теперь сын уверенно чувствует себя на уроках в школе.»</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Блог -->
+    <section id="blog" class="section">
+      <div class="container">
+        <h2 class="text-center" style="margin-bottom: 3rem;">Полезное для родителей</h2>
+        
+        <div class="grid-3">
+          <!-- Статья 1 -->
+          <article class="card blog-card">
+            <div class="blog-card__image">
+              <img src="images/blog-oge.webp" alt="Как подготовиться к ОГЭ" loading="lazy">
+            </div>
+            <div class="blog-card__content">
+              <div class="blog-card__meta">15 мая 2026 · Подготовка к экзаменам</div>
+              <h3 class="blog-card__title">Как подготовиться к ОГЭ по английскому: пошаговый план</h3>
+              <p class="blog-card__excerpt">Разбираем структуру экзамена, типичные ошибки и стратегию подготовки за 6 месяцев.</p>
+              <a href="blog-oge.html" class="btn btn-outline" style="padding: 0.6rem 1.2rem; font-size: 0.95rem;">Читать далее</a>
+            </div>
+          </article>
+
+          <!-- Статья 2 -->
+          <article class="card blog-card">
+            <div class="blog-card__image">
+              <img src="images/blog-barrier.webp" alt="Языковой барьер" loading="lazy">
+            </div>
+            <div class="blog-card__content">
+              <div class="blog-card__meta">28 апреля 2026 · Методика</div>
+              <h3 class="blog-card__title">Почему ребёнок не говорит на английском (и как это исправить)</h3>
+              <p class="blog-card__excerpt">5 причин языкового барьера у подростков и проверенные способы его преодоления.</p>
+              <a href="blog-barrier.html" class="btn btn-outline" style="padding: 0.6rem 1.2rem; font-size: 0.95rem;">Читать далее</a>
+            </div>
+          </article>
+
+          <!-- Статья 3 -->
+          <article class="card blog-card">
+            <div class="blog-card__image">
+              <img src="images/blog-motivation.webp" alt="Мотивация" loading="lazy">
+            </div>
+            <div class="blog-card__content">
+              <div class="blog-card__meta">10 апреля 2026 · Родителям</div>
+              <h3 class="blog-card__title">Как мотивировать подростка учить английский без давления</h3>
+              <p class="blog-card__excerpt">Практические советы: от выбора контента до создания языковой среды дома.</p>
+              <a href="blog-motivation.html" class="btn btn-outline" style="padding: 0.6rem 1.2rem; font-size: 0.95rem;">Читать далее</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Контакты -->
+    <section id="contact" class="contact section">
+      <div class="container">
+        <h2 class="text-center" style="margin-bottom: 3rem;">Запишитесь на первый урок</h2>
+        
+        <div class="contact__grid">
+          <div class="contact-info">
+            <h3>Контактная информация</h3>
+            
+            <div class="contact-item">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                <circle cx="12" cy="10" r="3"></circle>
+              </svg>
+              <div>
+                <strong>Адрес занятий</strong>
+                <span>Екатеринбург, ул. Мамина-Сибиряка, 101<br>6 этаж, офис 615</span>
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+              </svg>
+              <div>
+                <strong>Телефон / Telegram</strong>
+                <span>+7 (999) 000-00-00</span>
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                <polyline points="22,6 12,13 2,6"></polyline>
+              </svg>
+              <div>
+                <strong>Email</strong>
+                <span>englishwithLexi@email.ru</span>
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                <line x1="16" y1="2" x2="16" y2="6"></line>
+                <line x1="8" y1="2" x2="8" y2="6"></line>
+                <line x1="3" y1="10" x2="21" y2="10"></line>
+              </svg>
+              <div>
+                <strong>Режим работы</strong>
+                <span>Пн-Пт: 10:00 - 20:00</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Форма с AJAX-обработкой -->
+          <div class="contact-form">
+            <form id="contact-form" action="https://formspree.io/f/mjgzqojo" method="POST">
+              <div id="form-status"></div>
+
+              <div class="form-group">
+                <label for="name">Ваше имя *</label>
+                <input type="text" id="name" name="name" class="form-input" placeholder="Как к вам обращаться?" required>
+              </div>
+
+              <div class="form-group">
+                <label for="contact-info">Телефон или Telegram *</label>
+                <input type="text" id="contact-info" name="contact" class="form-input" placeholder="+7 (___) ___-__-__" required>
+              </div>
+
+              <div class="form-group">
+                <label for="child-info">Класс ребёнка и цель занятий</label>
+                <input type="text" id="child-info" name="child_info" class="form-input" placeholder="Например: 8 класс, подготовка к ОГЭ">
+              </div>
+
+              <div class="form-group">
+                <label for="message">Комментарий (необязательно)</label>
+                <textarea id="message" name="message" class="form-input" placeholder="Удобное время для занятий, вопросы и т.д."></textarea>
+              </div>
+
+              <button type="submit" id="submit-btn" class="btn btn-primary" style="width: 100%;">Отправить заявку</button>
+              <p class="form-note">Я отвечу в течение 2 часов. Никакого спама, только детали урока.</p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Футер -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="logo">English with <span>Lexi</span></div>
+          <p>Репетитор английского для подростков в Екатеринбурге. Индивидуальный подход, результат без стресса.</p>
+        </div>
+        
+        <div class="footer-links">
+          <h4>Разделы</h4>
+          <ul>
+            <li><a href="#about">Обо мне</a></li>
+            <li><a href="#services">Форматы занятий</a></li>
+            <li><a href="#reviews">Отзывы</a></li>
+            <li><a href="#blog">Блог</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-links">
+          <h4>Документы</h4>
+          <ul>
+            <li><a href="privacy.html">Политика конфиденциальности</a></li>
+            <li><a href="terms.html">Оферта</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>© 2026 English with Lexi. Демо-сайт.</span>
+        <span>Сделано с заботой о вашем бизнесе</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Скрипты -->
+  <script>
+    // Плавный скролл по якорям
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+
+    // AJAX-обработка формы Formspree
+    const form = document.getElementById('contact-form');
+    const status = document.getElementById('form-status');
+    const submitBtn = document.getElementById('submit-btn');
+    const originalBtnText = submitBtn ? submitBtn.innerText : 'Отправить';
+
+    if (form) {
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const formData = new FormData(form);
+        
+        if (submitBtn) {
+          submitBtn.disabled = true;
+          submitBtn.innerText = 'Отправка...';
+        }
+        status.className = '';
+        status.innerText = 'Отправка...';
+
+        try {
+          const response = await fetch(form.action, {
+            method: form.method,
+            body: formData,
+            headers: { 'Accept': 'application/json' }
+          });
+
+          if (response.ok) {
+            status.className = 'success';
+            status.innerText = 'Спасибо! Заявка отправлена. Я свяжусь с вами в ближайшее время.';
+            form.reset();
+          } else {
+            const data = await response.json();
+            status.className = 'error';
+            status.innerText = data.errors ? data.errors.map(err => err.message).join(', ') : 'Ошибка отправки. Попробуйте ещё раз.';
+          }
+        } catch (error) {
+          status.className = 'error';
+          status.innerText = 'Проверьте соединение с интернетом и попробуйте снова.';
+        } finally {
+          if (submitBtn) {
+            submitBtn.disabled = false;
+            submitBtn.innerText = originalBtnText;
+          }
+        }
+      });
+    }
+  </script>
+</body>
+</html>
