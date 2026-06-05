@@ -49,6 +49,16 @@
       line-height: 1.6;
       font-size: var(--body-size);
       -webkit-font-smoothing: antialiased;
+      
+      /* 👇 Исправление: отступ сверху, чтобы контент не прятался под меню */
+      padding-top: 100px; 
+    }
+
+    /* Адаптив для мобильных: отступ чуть меньше */
+    @media (max-width: 768px) {
+      body {
+        padding-top: 70px;
+      }
     }
 
     .container {
@@ -175,7 +185,7 @@
 
     /* Мобильное меню */
     .menu-btn {
-      display: none; /* Скрыто на десктопе */
+      display: none;
       background: none;
       border: none;
       font-size: 1.2rem;
@@ -183,6 +193,7 @@
       color: var(--c-charleston);
       cursor: pointer;
       padding: 0.5rem;
+      text-decoration: underline; 
     }
     
     .nav-links {
@@ -843,7 +854,9 @@
           <!-- Статья 1 -->
           <article class="card blog-card">
             <div class="blog-card__image">
-              <img src="images/blog-oge.webp" alt="Как подготовиться к ОГЭ" loading="lazy">
+              <a href="blog-oge.html">
+                <img src="images/blog-oge.webp" alt="Как подготовиться к ОГЭ" loading="lazy">
+              </a>            
             </div>
             <div class="blog-card__content">
               <div class="blog-card__meta">15 мая 2026 · Подготовка к экзаменам</div>
@@ -856,7 +869,9 @@
           <!-- Статья 2 -->
           <article class="card blog-card">
             <div class="blog-card__image">
-              <img src="images/blog-barrier.webp" alt="Языковой барьер" loading="lazy">
+              <a href="blog-barrier.html">
+                <img src="images/blog-barrier.webp" alt="Языковой барьер" loading="lazy">
+              </a>            
             </div>
             <div class="blog-card__content">
               <div class="blog-card__meta">28 апреля 2026 · Методика</div>
@@ -869,8 +884,9 @@
           <!-- Статья 3 -->
           <article class="card blog-card">
             <div class="blog-card__image">
-              <img src="images/blog-motivation.webp" alt="Мотивация" loading="lazy">
-            </div>
+              <a href="blog-motivation.html">
+                <img src="images/blog-motivation.webp" alt="Мотивация" loading="lazy">
+              </a>            </div>
             <div class="blog-card__content">
               <div class="blog-card__meta">10 апреля 2026 · Родителям</div>
               <h3 class="blog-card__title">Как мотивировать подростка учить английский без давления</h3>
