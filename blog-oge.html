@@ -17,47 +17,117 @@
       --body-size: 1.125rem;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-    body {
-      font-family: var(--font-main); 
-      background: var(--bg-body);
-      color: var(--text-main); 
-      line-height: 1.6; 
-      font-size: var(--body-size);
-      -webkit-font-smoothing: antialiased; 
-      padding-bottom: 4rem;
-      
-      /* 👇 Исправление: отступ сверху для статей */
-      padding-top: 100px; 
+    html { 
+      scroll-behavior: smooth; 
+      scroll-padding-top: 80px;
     }
-
-    /* Адаптив для мобильных */
-    @media (max-width: 768px) {
-      body {
-        padding-top: 70px;
-      }
-      /* Дополнительно уменьшаем заголовок на мобильных, чтобы не занимал полэкрана */
-      h1 {
-        font-size: 1.8rem;
-        line-height: 1.3;
-      }
+    body {
+      font-family: var(--font-main); background: var(--bg-body);
+      color: var(--text-main); line-height: 1.6; font-size: var(--body-size);
+      -webkit-font-smoothing: antialiased; padding-bottom: 4rem;
+      /* 👈 ГЛАВНОЕ ИСПРАВЛЕНИЕ: отступ сверху под липкий хэдер */
+      padding-top: 80px;
     }
     .container { width: var(--container-width); margin-inline: auto; padding-inline: 1rem; }
     
-    header { background: rgba(225, 217, 193, 0.95); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(34, 42, 42, 0.1); padding: 1rem 0; position: sticky; top: 0; z-index: 100; }
-    nav { display: flex; justify-content: space-between; align-items: center; }
-    .logo { font-weight: 700; font-size: 1.5rem; color: var(--c-charleston); text-decoration: none; }
+    header { 
+      background: rgba(225, 217, 193, 0.95); 
+      backdrop-filter: blur(10px); 
+      border-bottom: 1px solid rgba(34, 42, 42, 0.1); 
+      padding: 1rem 0; 
+      position: sticky; 
+      top: 0; 
+      z-index: 100; 
+    }
+    nav { 
+      display: flex; 
+      justify-content: space-between; 
+      align-items: center;
+      position: relative;
+    }
+    .logo { 
+      font-weight: 700; 
+      font-size: 1.5rem; 
+      color: var(--c-charleston); 
+      text-decoration: none; 
+    }
     .logo span { color: var(--cta-color); }
-    .btn { display: inline-block; padding: 0.8rem 1.5rem; border-radius: var(--radius-md); font-weight: 600; text-decoration: none; cursor: pointer; border: none; transition: 0.2s; }
+    
+    /* Кнопка Меню для мобильных */
+    .menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--c-charleston);
+      cursor: pointer;
+      padding: 0.5rem;
+      text-decoration: underline;
+    }
+    
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+    }
+    .nav-links a { 
+      font-weight: 500; 
+      color: var(--text-muted);
+      text-decoration: none;
+    }
+    .nav-links a:hover { color: var(--cta-color); }
+    
+    /* Мобильная навигация */
+    @media (max-width: 768px) {
+      .logo { display: none; }
+      .menu-btn { display: block; }
+      
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: var(--c-bone);
+        flex-direction: column;
+        padding: 2rem;
+        gap: 1.5rem;
+        border-bottom: 1px solid rgba(34, 42, 42, 0.1);
+        box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+      }
+      
+      .nav-links.active {
+        display: flex;
+      }
+      
+      body {
+        padding-top: 70px; /* Меньше отступ на мобильном */
+      }
+      
+      html {
+        scroll-padding-top: 70px;
+      }
+    }
+    
+    .btn { 
+      display: inline-block; 
+      padding: 0.8rem 1.5rem; 
+      border-radius: var(--radius-md); 
+      font-weight: 600; 
+      text-decoration: none; 
+      cursor: pointer; 
+      border: none; 
+      transition: 0.2s; 
+    }
     .btn-primary { background: var(--cta-color); color: #fff; }
     .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(237,67,25,0.3); }
     .btn-outline { border: 2px solid var(--c-charleston); color: var(--c-charleston); background: transparent; }
     .btn-outline:hover { background: var(--c-charleston); color: var(--c-bone); }
 
-    .article-header { margin-top: 3rem; margin-bottom: 2rem; }
+    .article-header { margin-top: 2rem; margin-bottom: 2rem; }
     .breadcrumbs { font-size: 0.9rem; color: var(--text-muted); margin-bottom: 1rem; }
     .breadcrumbs a { color: var(--text-muted); text-decoration: underline; }
-    h1 { font-size: clamp(2rem, 5vw, 2.8rem); line-height: 1.2; margin-bottom: 1rem; color: var(--text-main); }
+    h1 { font-size: clamp(1.8rem, 5vw, 2.5rem); line-height: 1.2; margin-bottom: 1rem; color: var(--text-main); }
     .meta { color: var(--text-muted); font-size: 0.95rem; margin-bottom: 2rem; display: block; }
     
     .content p { margin-bottom: 1.5rem; color: var(--text-main); }
@@ -77,7 +147,6 @@
     .cta-box h3 { margin-bottom: 1rem; }
     .cta-box p { color: var(--text-muted); margin-bottom: 1.5rem; }
 
-    /* Пагинация статей */
     .article-pagination {
       display: flex;
       justify-content: space-between;
@@ -107,25 +176,6 @@
       .article-pagination { flex-direction: column; align-items: stretch; }
       .pagination-link:last-child { text-align: left; flex-direction: row; }
     }
-    /* Фикс заголовка и отступов на мобильных */
-    @media (max-width: 768px) {
-      html { scroll-padding-top: 70px; }
-      
-      .article-header {
-        margin-top: 1rem;
-        margin-bottom: 1.5rem;
-      }
-      
-      h1 {
-        font-size: 1.8rem;
-        line-height: 1.3;
-      }
-      
-      /* Убираем лишние отступы у контента, чтобы текст шёл сразу после заголовка */
-      .content p:first-child {
-        margin-top: 0;
-      }
-    }
   </style>
 </head>
 <body>
@@ -133,7 +183,19 @@
   <header>
     <div class="container">
       <nav>
+        <!-- Кнопка Меню (видна только на мобильном) -->
+        <button id="menu-toggle" class="menu-btn">Меню</button>
+        
+        <!-- Логотип (виден только на десктопе) -->
         <a href="index.html" class="logo">English with <span>Lexi</span></a>
+        
+        <!-- Ссылки -->
+        <div class="nav-links" id="nav-links">
+          <a href="index.html">Главная</a>
+          <a href="index.html#blog">Блог</a>
+          <a href="index.html#contact">Контакты</a>
+        </div>
+        
         <a href="index.html#contact" class="btn btn-primary" style="padding: 0.6rem 1.2rem; font-size: 0.9rem;">Записаться</a>
       </nav>
     </div>
@@ -152,8 +214,6 @@
       <div class="content">
         <p>Подготовка к ОГЭ может казаться огромной горой, но если разбить её на шаги, всё становится понятным. Главное - начать заранее и не паниковать. Ниже - проверенная стратегия, которая работает без выгорания.</p>
         
-        <img src="images/blog-oge.webp" alt="Подготовка к ОГЭ по английскому" style="width: 100%; height: auto; border-radius: var(--radius-md); margin: 2rem 0; display: block;">
-
         <h2>Шаг 1. Аудит знаний (6 месяцев до экзамена)</h2>
         <p>Прежде чем открывать сборники тестов, нужно честно оценить, где мы сейчас. Решите один пробный вариант целиком, засеките время. Не страшно, если результат будет низким - это наша точка старта, а не приговор.</p>
 
@@ -208,6 +268,27 @@
       </p>
     </div>
   </footer>
+
+  <script>
+    // Мобильное меню
+    const menuToggle = document.getElementById('menu-toggle');
+    const navLinks = document.getElementById('nav-links');
+
+    if (menuToggle && navLinks) {
+      menuToggle.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+        menuToggle.textContent = navLinks.classList.contains('active') ? 'Закрыть' : 'Меню';
+      });
+
+      // Закрываем меню при клике на ссылку
+      navLinks.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          navLinks.classList.remove('active');
+          menuToggle.textContent = 'Меню';
+        });
+      });
+    }
+  </script>
 
 </body>
 </html>
